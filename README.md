@@ -49,9 +49,9 @@ cd ocp-e2sim
 ./run_e2sim.sh
 ```
 If in `e2mgr` logs you see something like this it means that `e2sim` has successfully registered with the RIC:
-```
-{"crit":"INFO","ts":1666880119183,"id":"E2Manager","msg":"#RmrSender.Send - RAN name: gnb_734_733_b5c67780 , Message type: 12002 - Successfully sent RMR message","mdc":{"time":"2022-10-27 14:15:19.183"}}
-```
+>```
+>{"crit":"INFO","ts":1666880119183,"id":"E2Manager","msg":"#RmrSender.Send - RAN name: >gnb_734_733_b5c67780 , Message type: 12002 - Successfully sent RMR message","mdc":>>>>{"time":"2022-10-27 14:15:19.183"}}
+>```
 
 Start the base xapp container: 
 ```
@@ -66,11 +66,11 @@ cd ../xapp-oai/xapp-sm-connector/
 ./run_xapp.sh
 ```
 Wait for the following lines to appear:
-```
-about to call xapp startup
-Still waiting for indreq buf...
-Opened control socket server on port 7000
-```
+>```
+>about to call xapp startup
+>Still waiting for indreq buf...
+>Opened control socket server on port 7000
+>```
 The connector is now ready to communicate with the base xapp, let’s run it:
 ```
 docker exec -it base-xapp:24 bash
@@ -79,52 +79,52 @@ python3 run_xapp.py
 ```
 The base xapp will now receive periodic RIC indication messages from the gNB. When an indication message is received, the xapp sends a control request to write the target RAN parameters with random data. 
 This is how it normally looks like in the base xapp:
-```
-Received  14  bytes
-Recevied RIC indication response:
-param_map {
-  key: GNB_ID
-  value: "8"
-}
-param_map {
-  key: SOMETHING
-  value: "1"
-}
-
-Sending RIC indication control with random data
-printing built control message:
-msg_type: CONTROL
-ran_control_request {
-  target_param_map {
-    key: GNB_ID
-    value: "5"
-  }
-  target_param_map {
-    key: SOMETHING
-    value: "3"
-  }
-}
-
-Socket sent 18 bytes
-
-```
+>```
+>Received  14  bytes
+>Recevied RIC indication response:
+>param_map {
+>  key: GNB_ID
+>  value: "8"
+>}
+>param_map {
+>  key: SOMETHING
+>  value: "1"
+>}
+>
+>Sending RIC indication control with random data
+>printing built control message:
+>msg_type: CONTROL
+>ran_control_request {
+>  target_param_map {
+>    key: GNB_ID
+>    value: "5"
+>  }
+>  target_param_map {
+>    key: SOMETHING
+>    value: "3"
+>  }
+>}
+>
+>Socket sent 18 bytes
+>
+>```
 And this is how it looks like in the gNB:
-```
-Received 8 bytes
-ran message id 2
-Indication request message received
-Indication request for 2 parameters:
-        Parameter id 1 requested (a.k.a gnb_id)
-        Parameter id 2 requested (a.k.a something)
-Sending indication response
-Sent 14 bytes, buflen was 14
-
--------------------------------
-Received 18 bytes
-ran message id 4
-Control message received
-Applying target parameter gnb_id with value 5
-Applying target parameter something with value 3
-
--------------------------------
-```
+>```
+>Received 8 bytes
+>ran message id 2
+>Indication request message received
+>Indication request for 2 parameters:
+>        Parameter id 1 requested (a.k.a gnb_id)
+>        Parameter id 2 requested (a.k.a something)
+>Sending indication response
+>Sent 14 bytes, buflen was 14
+>
+>-------------------------------
+>Received 18 bytes
+>ran message id 4
+>Control message received
+>Applying target parameter gnb_id with value 5
+>Applying target parameter something with value 3
+>
+>-------------------------------
+>```
