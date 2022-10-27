@@ -1,0 +1,16 @@
+[submodule "oai-oran-protolib"]
+	path = oai-oran-protolib
+	url = https://github.com/wineslab/oai-oran-protolib.git
+[submodule "xapp-oai"]
+	path = xapp-oai
+	url = https://github.com/wineslab/xapp-oai.git
+[submodule "e2"]
+	path = e2
+	url = https://github.com/wineslab/e2.git
+[submodule "e2protobuf"]
+	path = e2protobuf
+	url = https://github.com/wineslab/e2protobuf.git
+[submodule "ocp-e2sim"]
+	path = ocp-e2sim
+	url = https://github.com/wineslab/ocp-e2sim.git
+	branch = oai-support
