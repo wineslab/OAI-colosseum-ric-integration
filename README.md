@@ -11,7 +11,7 @@ This components connects the xapp with the RIC. In downstream (from the xapp to 
 See https://github.com/wineslab/colosseum-near-rt-ric
 
 ### e2sim 
-Similar to what the xapp-sm-connectors, e2sim encapsulate/de-encapsulate custom sm buffers that are to be sent or that are received from the gNB. It communicates with the gNB via UDP sockets. 
+Similar to what the xapp-sm-connector does, e2sim encapsulate/de-encapsulate custom sm buffers that are to be sent or that are received from the gNB. It communicates with the gNB via UDP sockets. 
 
 ### gNB Emulator
 This is a simple gNB emulator to test our custom sm without running a real gNB. 
