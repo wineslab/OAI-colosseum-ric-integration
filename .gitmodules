@@ -14,3 +14,7 @@
 	path = ocp-e2sim
 	url = https://github.com/wineslab/ocp-e2sim.git
 	branch = oai-support
+[submodule "openairinterface5g"]
+	path = openairinterface5g
+	url = https://github.com/EugenioMoro/openairinterface5g.git
+	branch = bandwidth-testing-abs-sr-bsr-multiple_ue
