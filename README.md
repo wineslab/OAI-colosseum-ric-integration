@@ -1,25 +1,27 @@
-# Getting started with OAI-RIC on colosseum 
-## Components
-### Base-xapp 
+# Components
+## Base-xapp (`xapp-oai` submodule)
 This is a basic xapp that subscribes to selected ran parameters, receives periodic indications messages and sends control requests to update these parameters.
 The base xapp can communicate with the gNB by means of a RIC, or via direct socket communication. 
 
-### xapp-sm-connector
+## xapp-sm-connector (`xapp-oai` submodule)
 This components connects the xapp with the RIC. In downstream (from the xapp to the gnb), the connector receives our custom sm buffers to be encapsulated in E2AP messages and sent to the RIC. In upstream (from the gNB to the xapp), the connector retrieves custom sm buffers from E2AP to be sent to the xapp 
 
-### RIC Components 
+## RIC Components 
 See https://github.com/wineslab/colosseum-near-rt-ric
 
-### e2sim 
+## e2sim (`ocp-e2sim` submodule)
 Similar to what the xapp-sm-connector does, e2sim encapsulate/de-encapsulate custom sm buffers that are to be sent or that are received from the gNB. It communicates with the gNB via UDP sockets. 
 
-### gNB Emulator
+## gNB Emulator (`e2protobuf` submodule)
 This is a simple gNB emulator to test our custom sm without running a real gNB. 
 
-### Protobuf definitions
+## Protobuf definitions (`oai-oran-protolib` submodule)
 This repo contains the protobuf definitions of our custom 
 
-## Running base xApp with gNB emulator 
+## OpenAirInterface with xapp agent (`openairinterface5g` submodule)
+This is a fork of OpenAirInterface with the addition of a custom xapp agent
+
+# Running base xApp with gNB emulator 
 Start by making a reservation that includes `oai-ric`, the login password is `pass`.  For the following steps, we recommend using a terminal multiplexer such as `tmux` or `screen`.
 
 Start the gNB emulator:
@@ -129,7 +131,7 @@ And this is how it looks like in the gNB:
 >-------------------------------
 >```
 
-## Running base xApp with OAI gNB 
+# Running base xApp with OAI gNB 
 This requires a running reservation with `oai-ric` and `eugenio-ran-dev`. The procedure is similar to the gNB emulator case, with the following differences:
 
 Start the RIC in the SRN running with `oai-ric`:
@@ -140,7 +142,7 @@ Start the gNB in the SRN running with `eugenio-ran-dev`:
 ````
 ./run_gnb.sh -t donor
 ````
-then start `e2term` in the same SRN:
+Then start `e2term` in the same SRN:
 ````
 cd ocp-e2sim
 ./run_e2sim.sh
