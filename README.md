@@ -32,7 +32,7 @@ The emulated gNB is waiting for incoming messages.
 Start the RIC:
 ```
 cd
-./start-ric.sh
+./start_ric_local_gnb.sh
 ```
 
 and then that the following containers are running with `docker ps`:
@@ -128,3 +128,20 @@ And this is how it looks like in the gNB:
 >
 >-------------------------------
 >```
+
+## Running base xApp with OAI gNB 
+This requires a running reservation with `oai-ric` and `eugenio-ran-dev`. The procedure is similar to the gNB emulator case, with the following differences:
+
+Start the RIC in the SRN running with `oai-ric`:
+```
+start_ric.sh
+```
+Start the gNB in the SRN running with `eugenio-ran-dev`:
+````
+./run_gnb.sh -t donor
+````
+then start `e2term` in the same SRN:
+````
+cd ocp-e2sim
+./run_e2sim.sh
+````
