@@ -63,7 +63,7 @@ cd
 
 Start `xapp-sm-connector`:
 ```
-docker exec -it base-xapp:24 bash
+docker exec -it base-xapp-24 bash
 cd ../xapp-oai/xapp-sm-connector/
 ./run_xapp.sh
 ```
@@ -75,7 +75,7 @@ Wait for the following lines to appear:
 >```
 The connector is now ready to communicate with the base xapp, let’s run it:
 ```
-docker exec -it base-xapp:24 bash
+docker exec -it base-xapp-24 bash
 cd ../xapp-oai/base-xapp/
 python3 run_xapp.py
 ```
