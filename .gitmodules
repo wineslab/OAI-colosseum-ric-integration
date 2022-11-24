@@ -10,10 +10,10 @@
 [submodule "e2protobuf"]
 	path = e2protobuf
 	url = https://github.com/wineslab/e2protobuf.git
-[submodule "ocp-e2sim"]
-	path = ocp-e2sim
-	url = https://github.com/wineslab/ocp-e2sim.git
-	branch = oai-support
+[submodule "e2sim"]
+	path = e2sim
+	url = https://github.com/wineslab/oai-o-ran-e2-sim.git
+	branch = oai-support-release
 [submodule "openairinterface5g"]
 	path = openairinterface5g
 	url = https://github.com/EugenioMoro/openairinterface5g.git
