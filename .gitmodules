@@ -14,3 +14,6 @@
 	path = openairinterface5g
 	url = https://github.com/EugenioMoro/openairinterface5g.git
 	branch = bandwidth-testing-abs-sr-bsr-multiple_ue
+[submodule "e2sim"]
+	path = e2sim
+	url = https://github.com/wineslab/oai-o-ran-e2-sim
